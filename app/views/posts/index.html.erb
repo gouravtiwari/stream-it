@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<% @posts.each do |post| %>
+  <h3><%= link_to post.title, post %></h3>
+  <div><%= post.body %></div>
+  <div>
+    <span><%= link_to 'Edit', edit_post_path(post) %></span> |
+    <span><%= link_to 'delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+  </div>
+<% end %>
