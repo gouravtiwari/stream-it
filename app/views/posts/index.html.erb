@@ -5,10 +5,10 @@
       <div class="blog-post">
         <h2 class="blog-post-title"><%= link_to post.title, post %></h2>
         <p class="blog-post-meta"><%= post.created_at.strftime('%B %d, %Y')%> by <a href="#">Gourav</a></p>
-        <div><%= post.body %></div>
+        <div><%= post.body.html_safe %></div>
         <div>
           <span><%= link_to 'Edit', edit_post_path(post) %></span> |
-          <span><%= link_to 'delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+          <span><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
         </div>
       </div>
     <% end %>

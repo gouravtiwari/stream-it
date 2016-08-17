@@ -134,8 +134,17 @@ h6, .h6 {
 .blog-pagination > .btn {
   border-radius: 2rem;
 }
-
-
+.btn-outline-primary {
+  color: #ca4242;
+  background-image: none;
+  background-color: transparent;
+  border-color: #010101;
+}
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #ca4242;
+    border-color: #0275d8;
+}
 /*
  * Blog posts
  */
@@ -169,11 +178,16 @@ h6, .h6 {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #ca4242;
-  border-color: #0275d8;
+  color: #ca4242;
+  background-color: #fff;
+  border-color: #ca4242;
 }
 
+.btn-primary:focus, .btn-primary.focus, .btn-primary:hover {
+    color: #fff;
+    background-color: #ca4242;
+    border-color: #ca4242;
+}
 a {
   color: #010101;
   text-decoration: none;
