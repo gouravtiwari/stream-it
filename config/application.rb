@@ -13,7 +13,7 @@ module StreamIt
     # -- all .rb files in that directory are automatically loaded.
 
     config.middleware.use 'Rack::DeflaterWithExclusions', :exclude => proc { |env|
-      env['PATH_INFO'].match(/\/posts\//) || env['PATH_INFO'].match(/\//(.)*/)
+      env['PATH_INFO'].match(/\/posts\//) || env['PATH_INFO'].match(/\//)
     }
   end
 end

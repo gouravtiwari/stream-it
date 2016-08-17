@@ -18,6 +18,7 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
 
+gem 'passenger', '5.0.30'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

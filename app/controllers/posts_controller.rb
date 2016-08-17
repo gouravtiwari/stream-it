@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  layout "stream/posts", only: [:index]
+
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
+    render stream: true
   end
 
   # GET /posts/1
