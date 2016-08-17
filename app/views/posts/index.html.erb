@@ -1,53 +1,61 @@
-<p id="notice"><%= notice %></p>
-<div class="row">
-  <div class="col-sm-8 blog-main">
-    <% @posts.each do |post| %>
-      <div class="blog-post">
-        <h2 class="blog-post-title"><%= link_to post.title, post %></h2>
-        <p class="blog-post-meta"><%= post.created_at.strftime('%B %d, %Y')%> by <a href="#">Gourav</a></p>
-        <div><%= post.body.html_safe %></div>
-        <div>
-          <span><%= link_to 'Edit', edit_post_path(post) %></span> |
-          <span><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-        </div>
+<% content_for(:header) do %>
+  <%= render 'layouts/header' %>
+<% end %>
+
+<% content_for(:posts) do %>
+  <% @posts.each do |post| %>
+    <div class="blog-post">
+      <h2 class="blog-post-title"><%= link_to post.title, post %></h2>
+      <p class="blog-post-meta"><%= post.created_at.strftime('%B %d, %Y')%> by <a href="#">Gourav</a></p>
+      <div><%= post.body.html_safe %></div>
+      <div>
+        <span><%= link_to 'Edit', edit_post_path(post) %></span> |
+        <span><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
       </div>
-    <% end %>
+    </div>
+  <% end %>
+<% end %>
 
-    <nav class="blog-pagination">
-      <a class="btn btn-outline-primary" href="#">Older</a>
-      <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-    </nav>
+<% content_for(:pagination) do %>
+  <nav class="blog-pagination">
+    <a class="btn btn-outline-primary" href="#">Older</a>
+    <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+  </nav>
+<% end %>
+
+<% content_for(:siebar_about) do %>
+  <div class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p><em>HTTP Streaming</em> is a great concept and supported since HTTP 1.1</p>
   </div>
+<% end %>
 
-  <div class="col-sm-3 offset-sm-1 blog-sidebar">
-    <div class="sidebar-module sidebar-module-inset">
-      <h4>About</h4>
-      <p><em>HTTP Streaming</em> is a great concept and supported since HTTP 1.1</p>
-    </div>
-    <div class="sidebar-module">
-      <h4>Archives</h4>
-      <ol class="list-unstyled">
-        <li><a href="#">March 2014</a></li>
-        <li><a href="#">February 2014</a></li>
-        <li><a href="#">January 2014</a></li>
-        <li><a href="#">December 2013</a></li>
-        <li><a href="#">November 2013</a></li>
-        <li><a href="#">October 2013</a></li>
-        <li><a href="#">September 2013</a></li>
-        <li><a href="#">August 2013</a></li>
-        <li><a href="#">July 2013</a></li>
-        <li><a href="#">June 2013</a></li>
-        <li><a href="#">May 2013</a></li>
-        <li><a href="#">April 2013</a></li>
-      </ol>
-    </div>
-    <div class="sidebar-module">
-      <h4>Elsewhere</h4>
-      <ol class="list-unstyled">
-        <li><a href="#">GitHub</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Facebook</a></li>
-      </ol>
-    </div>
-  </div><!-- /.blog-sidebar -->
-</div>
+<% content_for(:siebar_archives) do %>
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ol class="list-unstyled">
+      <li><a href="#">March 2014</a></li>
+      <li><a href="#">February 2014</a></li>
+      <li><a href="#">January 2014</a></li>
+      <li><a href="#">December 2013</a></li>
+      <li><a href="#">November 2013</a></li>
+      <li><a href="#">October 2013</a></li>
+      <li><a href="#">September 2013</a></li>
+      <li><a href="#">August 2013</a></li>
+      <li><a href="#">July 2013</a></li>
+      <li><a href="#">June 2013</a></li>
+      <li><a href="#">May 2013</a></li>
+      <li><a href="#">April 2013</a></li>
+    </ol>
+  </div>
+<% end %>
+<% content_for(:siebar_else_where) do %>
+  <div class="sidebar-module">
+    <h4>Elsewhere</h4>
+    <ol class="list-unstyled">
+      <li><a href="#">GitHub</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">Facebook</a></li>
+    </ol>
+  </div>
+<% end %>

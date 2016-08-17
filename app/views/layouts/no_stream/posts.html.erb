@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stream It</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield(:header) %>
+    <div class="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-info") %>
+      <% end %>
+      <p id="notice"><%= notice %></p>
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+          <%= yield(:posts) %>
+          <%= yield(:pagination) %>
+          <% sleep 2 %>
+        </div>
+        <div class="col-sm-3 offset-sm-1 blog-sidebar">
+          <%= yield(:siebar_about) %>
+          <% sleep 2 %>
+          <%= yield(:siebar_archives) %>
+          <% sleep 2 %>
+          <%= yield(:siebar_else_where) %>
+          <% sleep 2 %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
