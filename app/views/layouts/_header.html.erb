@@ -1,16 +1,17 @@
-<nav class="navbar navbar-dark bg-inverse">
-  <%= link_to "Stream It!", root_path, class: "navbar-brand" %>
-  <ul class="nav navbar-nav">
-
-    <li class="nav-item active">
+<div class="blog-masthead">
+  <div class="container">
+    <nav class="nav blog-nav">
+      <%= link_to "Home", root_path, class: "nav-link active" %>
       <%= link_to 'New Post', new_post_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">About</a>
-    </li>
-  </ul>
-  <form class="form-inline pull-xs-right">
-    <input class="form-control" type="text" placeholder="Search">
-    <button class="btn btn-success-outline" type="submit">Search</button>
-  </form>
-</nav>
+      <a class="nav-link" href="#">We are hiring!</a>
+      <a class="nav-link" href="#">About Realtor.com</a>
+    </nav>
+  </div>
+</div>
+
+<div class="blog-header">
+  <div class="container">
+    <h1 class="blog-title">Stream It!</h1>
+    <p class="lead blog-description">A simple blog</p>
+  </div>
+</div>
