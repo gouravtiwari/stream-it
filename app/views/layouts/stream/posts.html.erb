@@ -10,7 +10,7 @@
 
   <body>
     <%= yield(:header) %>
-    <% sleep 5 %>
+    <% sleep 3 %>
     <div class="container">
       <% flash.each do |name, msg| %>
         <%= content_tag(:div, msg, class: "alert alert-info") %>
@@ -20,7 +20,6 @@
         <div class="col-sm-8 blog-main">
           <%= yield(:posts) %>
           <%= yield(:pagination) %>
-          <% sleep 2 %>
         </div>
         <div class="col-sm-3 offset-sm-1 blog-sidebar">
           <%= yield(:siebar_about) %>
