@@ -3,24 +3,34 @@
 <% end %>
 
 <% provide(:posts) do %>
-  <% @posts.each do |post| %>
-    <div class="blog-post">
-      <h2 class="blog-post-title"><%= link_to post.title, post %></h2>
-      <p class="blog-post-meta"><%= post.created_at.strftime('%B %d, %Y')%> by <a href="#">Gourav</a></p>
-      <div><%= post.body.html_safe %></div>
-      <div>
-        <span><%= link_to 'Edit', edit_post_path(post) %></span> |
-        <span><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+  <% if display_posts? %>
+    <% @posts.each do |post| %>
+      <div class="blog-post">
+        <h2 class="blog-post-title"><%= link_to post.title, post %></h2>
+        <p class="blog-post-meta"><%= post.created_at.strftime('%B %d, %Y')%> by <a href="#">Gourav</a></p>
+        <div><%= post.body.html_safe %></div>
+        <div>
+          <span><%= link_to 'Edit', edit_post_path(post) %></span> |
+          <span><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Default Post</h2>
+        <p class="blog-post-meta"><%= Time.now.strftime('%B %d, %Y')%> by <a href="#">Gourav</a></p>
+        <div>Coming soon!</div>
+      </div>
   <% end %>
 <% end %>
 
 <% provide(:pagination) do %>
-  <nav class="blog-pagination">
-    <a class="btn btn-outline-primary" href="#">Older</a>
-    <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-  </nav>
+  <% if display_posts? %>
+    <nav class="blog-pagination">
+      <a class="btn btn-outline-primary" href="#">Older</a>
+      <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+    </nav>
+  <% end %>
 <% end %>
 
 <% provide(:siebar_about) do %>

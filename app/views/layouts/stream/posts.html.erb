@@ -10,9 +10,9 @@
   </head>
 
   <body>
-    <%= yield(:header) %>
-    <!-- Time till this fragment: <%=  Time.now - time %> -->
     <% sleep 3 %>
+    <!-- Time till this fragment: <%=  Time.now - time %> -->
+    <%= yield(:header) %>
     <div class="container">
       <% flash.each do |name, msg| %>
         <%= content_tag(:div, msg, class: "alert alert-info") %>
@@ -21,20 +21,23 @@
       <div class="row">
         <div class="col-sm-8 blog-main">
           <%= yield(:posts) %>
-          <%= yield(:pagination) %>
           <!-- Time till this fragment: <%=  Time.now - time %> -->
-          <% sleep 2 %>
+
+          <% sleep 1 %>
+          <!-- Time till this fragment: <%=  Time.now - time %> -->
+          <%= yield(:pagination) %>
         </div>
         <div class="col-sm-3 offset-sm-1 blog-sidebar">
+          <% sleep 1 %>
+          <!-- Time till this fragment: <%=  Time.now - time %> -->
           <%= yield(:siebar_about) %>
+
+          <% sleep 1 %>
           <!-- Time till this fragment: <%=  Time.now - time %> -->
-          <% sleep 2 %>
           <%= yield(:siebar_archives) %>
+          <% sleep 1 %>
           <!-- Time till this fragment: <%=  Time.now - time %> -->
-          <% sleep 2 %>
           <%= yield(:siebar_else_where) %>
-          <!-- Time till this fragment: <%=  Time.now - time %> -->
-          <% sleep 2 %>
         </div>
       </div>
     </div>
