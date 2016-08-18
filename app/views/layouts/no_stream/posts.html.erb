@@ -1,3 +1,4 @@
+<% time = Time.now %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,6 +10,8 @@
   </head>
 
   <body>
+    <% sleep 3 %>
+    <!-- Time till this fragment: <%=  Time.now - time %> -->
     <%= yield(:header) %>
     <div class="container">
       <% flash.each do |name, msg| %>
@@ -18,18 +21,26 @@
       <div class="row">
         <div class="col-sm-8 blog-main">
           <%= yield(:posts) %>
+          <!-- Time till this fragment: <%=  Time.now - time %> -->
+
+          <% sleep 1 %>
+          <!-- Time till this fragment: <%=  Time.now - time %> -->
           <%= yield(:pagination) %>
-          <% sleep 2 %>
         </div>
         <div class="col-sm-3 offset-sm-1 blog-sidebar">
+          <% sleep 1 %>
+          <!-- Time till this fragment: <%=  Time.now - time %> -->
           <%= yield(:siebar_about) %>
-          <% sleep 2 %>
+
+          <% sleep 1 %>
+          <!-- Time till this fragment: <%=  Time.now - time %> -->
           <%= yield(:siebar_archives) %>
-          <% sleep 2 %>
+          <% sleep 1 %>
+          <!-- Time till this fragment: <%=  Time.now - time %> -->
           <%= yield(:siebar_else_where) %>
-          <% sleep 2 %>
         </div>
       </div>
     </div>
   </body>
 </html>
+<!-- Time till this fragment: <%=  Time.now - time %> -->
